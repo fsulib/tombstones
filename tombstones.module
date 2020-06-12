@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains tombstones.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function tombstones_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the tombstones module.
+    case 'help.page.tombstones':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Drupal module for handling access to deleted content') . '</p>';
+      return $output;
+
+    default:
+  }
+}
