@@ -1,0 +1,42 @@
+<?php
+
+/**
+* @file
+* Install, update and uninstall functions for the tombstones module.
+*/
+
+/**
+* Implements hook_schema().
+*/
+function tombstones_schema() {
+  $schema['tombstones'] = [
+    'description' => 'Tombstone info for deleted content.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'nid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'time' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'title' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'path' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  return $schema;
+}
