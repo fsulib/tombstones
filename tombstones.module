@@ -22,3 +22,11 @@ function tombstones_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
+
+/**
+ * Implements hook_entity_predelete().
+ */
+function tombstones_entity_predelete(Drupal\Core\Entity\EntityInterface $entity) {
+  $nid = $entity->id();
+  \Drupal::service('tombstones')->createTombstone($nid);
+}
