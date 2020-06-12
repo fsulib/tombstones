@@ -1,0 +1,7 @@
+services:
+  logger.channel.tombstones:
+    parent: logger.channel_base
+    arguments: ['tombstones']
+  tombstones:
+    class: Drupal\tombstones\TombstonesService
+    arguments: []
