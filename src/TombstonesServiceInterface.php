@@ -7,6 +7,8 @@ namespace Drupal\tombstones;
  */
 interface TombstonesServiceInterface {
 
-  function createTombstone($entity);
+  function createTombstone($node_id);
+  function getTombstoneRecordByPath($tombstoned_path);
+  function getTombstoneRecordById($tombstone_id);
 
 }

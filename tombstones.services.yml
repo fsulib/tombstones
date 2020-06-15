@@ -2,6 +2,12 @@ services:
   logger.channel.tombstones:
     parent: logger.channel_base
     arguments: ['tombstones']
-  tombstones:
+  tombstones.service:
     class: Drupal\tombstones\TombstonesService
     arguments: []
+  tombstones.event_subscriber:
+    class: Drupal\tombstones\EventSubscriber\TombstonesEventSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }
+

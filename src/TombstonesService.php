@@ -13,14 +13,26 @@ class TombstonesService implements TombstonesServiceInterface {
   public function __construct() {
   }
 
-  public function createTombstone($nid) {
+  public function createTombstone($node_id) {
     $time = time();
-    $node = node_load($nid);
+    $node = node_load($node_id);
     $title = $node->getTitle();
-    $path = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString();
+    $path = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $node_id])->toString();
     $database = \Drupal::database();
-    $result = $database->query("INSERT INTO {tombstones} (nid, time, title, path) VALUES ('{$nid}', '{$time}', '{$title}', '{$path}');");
+    $result = $database->query("INSERT INTO {tombstones} (nid, time, title, path) VALUES ('{$node_id}', '{$time}', '{$title}', '{$path}');");
     return $result;
+  }
+
+  public function getTombstoneRecordByPath($tombstoned_path) {
+    $database = \Drupal::database();
+    $result = $database->query("SELECT * FROM {tombstones} WHERE path='{$tombstoned_path}';");
+    return $result->fetchAll()[0];
+  }
+
+  public function getTombstoneRecordById($tombstone_id) {
+    $database = \Drupal::database();
+    $result = $database->query("SELECT * FROM {tombstones} WHERE id='{$tombstone_id}';");
+    return $result->fetchAll()[0];
   }
 
 }
