@@ -1,4 +1,6 @@
-name: 'Tombstones'
+name: Tombstones
 type: module
 description: 'Drupal module for handling access to deleted content'
 core: 8.x
+dependencies:
+  - menu_ui

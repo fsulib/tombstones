@@ -14,13 +14,20 @@ class TombstonesService implements TombstonesServiceInterface {
   }
 
   public function createTombstone($node_id) {
-    $time = time();
     $node = node_load($node_id);
-    $title = $node->getTitle();
-    $path = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $node_id])->toString();
-    $database = \Drupal::database();
-    $result = $database->query("INSERT INTO {tombstones} (nid, time, title, path) VALUES ('{$node_id}', '{$time}', '{$title}', '{$path}');");
-    return $result;
+    $node_path = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $node_id])->toString();
+    $tombstone = Node::create([
+		  'type' => 'tombstone',
+		  'langcode' => 'en',
+		  'created' => time(),
+		  'changed' => time(),
+		  'moderation_state' => 'published',
+		  'title' => $node->getTitle(),
+		  'field_tombstone_path' => $node_path,
+		]);
+    $node->save();
+    $tombstone_path = \Drupal::service('path.alias_storage')->save("/node/" . $tombstone->id(), $node_path, "en");
+    return $tombstone;
   }
 
   public function getTombstoneRecordByPath($tombstoned_path) {
