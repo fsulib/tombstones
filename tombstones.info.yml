@@ -1,4 +1,4 @@
 name: Tombstones
 type: module
-description: 'Drupal module for creating Tombstone entities to replace deleted content.'
+description: 'Drupal module for creating Tombstone nodes to replace deleted content.'
 core: 8.x
