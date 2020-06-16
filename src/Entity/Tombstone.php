@@ -27,10 +27,9 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   admin_permission = "administer tombstone entities",
  *   entity_keys = {
  *     "id" = "id",
- *     "label" = "name",
+ *     "label" = "title",
  *     "uuid" = "uuid",
  *     "langcode" = "langcode",
- *     "published" = "status",
  *   },
  * )
  */

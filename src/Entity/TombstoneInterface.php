@@ -4,14 +4,13 @@ namespace Drupal\tombstones\Entity;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
-use Drupal\Core\Entity\EntityPublishedInterface;
 
 /**
  * Provides an interface for defining Tombstone entities.
  *
  * @ingroup tombstones
  */
-interface TombstoneInterface extends ContentEntityInterface, EntityChangedInterface, EntityPublishedInterface {
+interface TombstoneInterface extends ContentEntityInterface, EntityChangedInterface {
 
   /**
    * Add get/set methods for your configuration properties here.
