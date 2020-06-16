@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Tombstone
+type: tombstone
+description: 'Tombstones replace other nodes to show that something used to exist at that URL endpoint, but doesn''t any longer.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

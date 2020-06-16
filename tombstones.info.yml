@@ -2,3 +2,5 @@ name: Tombstones
 type: module
 description: 'Drupal module for creating Tombstone nodes to replace deleted content.'
 core: 8.x
+dependencies:
+  - menu_ui
