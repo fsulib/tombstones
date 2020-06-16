@@ -5,7 +5,6 @@ namespace Drupal\tombstones\Entity;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityChangedTrait;
-use Drupal\Core\Entity\EntityPublishedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 
 /**
@@ -38,7 +37,6 @@ use Drupal\Core\Entity\EntityTypeInterface;
 class Tombstone extends ContentEntityBase implements TombstoneInterface {
 
   use EntityChangedTrait;
-  use EntityPublishedTrait;
 
   /**
    * {@inheritdoc}
@@ -76,35 +74,15 @@ class Tombstone extends ContentEntityBase implements TombstoneInterface {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
 
-    // Add the published field.
-    $fields += static::publishedBaseFieldDefinitions($entity_type);
+    $fields['title'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Title'))
+      ->setDescription(t('The title of the Tombstoned entity.'))
+      ->setSettings(['max_length' => 255]);
 
-    $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Tombstone entity.'))
-      ->setSettings([
-        'max_length' => 50,
-        'text_processing' => 0,
-      ])
-      ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -4,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'string_textfield',
-        'weight' => -4,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setRequired(TRUE);
-
-    $fields['status']->setDescription(t('A boolean indicating whether the Tombstone is published.'))
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'weight' => -3,
-      ]);
+    $fields['path'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Path'))
+      ->setDescription(t('The path of the Tombstoned entity.'))
+      ->setSettings(['max_length' => 255]);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))

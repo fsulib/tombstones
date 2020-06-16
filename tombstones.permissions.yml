@@ -11,10 +11,3 @@ delete tombstone entities:
 
 edit tombstone entities:
   title: 'Edit Tombstone entities'
-
-view published tombstone entities:
-  title: 'View published Tombstone entities'
-
-view unpublished tombstone entities:
-  title: 'View unpublished Tombstone entities'
-
