@@ -1,7 +1,0 @@
-tombstones.response:
-  path: '/tombstones/{tombstone_id}'
-  defaults:
-    _controller: '\Drupal\tombstones\Controller\TombstonesResponseController::response'
-    _title: 'Test'
-  requirements:
-    _permission: 'access content'
