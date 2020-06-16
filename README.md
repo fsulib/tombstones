@@ -1,2 +1,2 @@
-# tombstones
-A Drupal 8 module for handling requests for deleted content.
+# Tombstones
+Drupal module for creating Tombstone nodes to replace deleted content.
