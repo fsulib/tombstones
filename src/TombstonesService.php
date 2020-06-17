@@ -55,7 +55,6 @@ class TombstonesService {
     $tombstone = Node::create([
       'type' => 'tombstone',
       'title' => $tombstone_metadata['title'],
-      'field_tombstone_title' => $tombstone_metadata['title'],
       'field_tombstone_path' => $tombstone_metadata['path'],
     ]);
     $tombstone->save();

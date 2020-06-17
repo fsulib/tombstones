@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tombstone_addl_titles
+    - node.type.tombstone
+id: node.tombstone.field_tombstone_addl_titles
+field_name: field_tombstone_addl_titles
+entity_type: node
+bundle: tombstone
+label: 'Additional Titles'
+description: 'Additional titles for the resource this Tombstone represents.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

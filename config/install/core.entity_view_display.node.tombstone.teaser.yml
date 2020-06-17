@@ -3,10 +3,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.tombstone.field_tombstone_doi
+    - field.field.node.tombstone.field_tombstone_addl_links
+    - field.field.node.tombstone.field_tombstone_addl_titles
     - field.field.node.tombstone.field_tombstone_path
     - field.field.node.tombstone.field_tombstone_reason
-    - field.field.node.tombstone.field_tombstone_title
     - node.type.tombstone
   module:
     - user
@@ -21,8 +21,8 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_tombstone_doi: true
+  field_tombstone_addl_links: true
+  field_tombstone_addl_titles: true
   field_tombstone_path: true
   field_tombstone_reason: true
-  field_tombstone_title: true
   search_api_excerpt: true
