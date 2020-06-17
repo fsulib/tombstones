@@ -16,11 +16,23 @@ function tombstones_help($route_name, RouteMatchInterface $route_match) {
     case 'help.page.tombstones':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Drupal module for handling access to deleted content') . '</p>';
+      $output .= '<p>' . t('Drupal module for creating Tombstone nodes to replace deleted content.') . '</p>';
       return $output;
 
     default:
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tombstones_theme($existing, $type, $theme, $path) {
+  return [
+   'node__tombstone' => [
+      'template' => 'node--tombstone',
+      'base hook' => 'node'
+    ],
+  ];
 }
 
 /**
