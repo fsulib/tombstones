@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use \Drupal\node\Entity\Node;
 
 /**
  * Implements hook_help().
@@ -24,8 +25,31 @@ function tombstones_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
- * Implements hook_entity_predelete().
+ * Implements hook_ENTITY_TYPE_predelete().
  */
-function tombstones_entity_predelete(Drupal\Core\Entity\EntityInterface $entity) {
-  //$tombstone = \Drupal::service('tombstones.service')->createTombstone($nid);
+function tombstones_node_predelete(Drupal\Core\Entity\EntityInterface $entity) {
+  if (\Drupal::config('tombstones.settings')->get('tombstones_use_hooks') == TRUE) {
+    $title = $entity->getTitle();
+    $path = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $entity->id()])->toString();
+    $tombstones_tempstore = \Drupal::service('tempstore.private')->get('tombstones_predelete_node_metadata');
+    $tombstones_tempstore->set($entity->id(), ['title' => $title, 'path' => $path]);
+  }
+}
+
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function tombstones_node_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  if (\Drupal::config('tombstones.settings')->get('tombstones_use_hooks') == TRUE) {
+    $tombstones_tempstore = \Drupal::service('tempstore.private')->get('tombstones_predelete_node_metadata');
+    $tombstone_metadata = $tombstones_tempstore->get($entity->id());
+    $tombstone = Node::create([
+      'type' => 'tombstone',
+      'title'       => $tombstone_metadata['title'],
+      'field_tombstone_path' => $tombstone_metadata['path'],
+    ]);
+    $tombstone->save();
+    \Drupal::service('path.alias_storage')->save("/node/" . $tombstone->id(), $tombstone_metadata['path'], "en");
+  }
 }

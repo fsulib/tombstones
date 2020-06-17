@@ -5,7 +5,7 @@ namespace Drupal\tombstones;
 /**
  * Class TombstonesService.
  */
-class TombstonesService implements TombstonesServiceInterface {
+class TombstonesService {
 
   /**
    * Constructs a new TombstonesService object.
@@ -13,33 +13,30 @@ class TombstonesService implements TombstonesServiceInterface {
   public function __construct() {
   }
 
-  public function createTombstone($node_id) {
-    $node = node_load($node_id);
-    $node_path = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $node_id])->toString();
-    $tombstone = Node::create([
-		  'type' => 'tombstone',
-		  'langcode' => 'en',
-		  'created' => time(),
-		  'changed' => time(),
-		  'moderation_state' => 'published',
-		  'title' => $node->getTitle(),
-		  'field_tombstone_path' => $node_path,
-		]);
-    $node->save();
-    $tombstone_path = \Drupal::service('path.alias_storage')->save("/node/" . $tombstone->id(), $node_path, "en");
-    return $tombstone;
+  public function shouldTombstoneBeCreated($entity) {
+    $ctypes = \Drupal::config('tombstones.settings')->get('tombstones_ctypes');
+    $ctypes_shallow = [];
+    foreach ($ctypes as $key => $value) {
+      if ($value != 0) {
+        $ctypes_shallow[] = $value;
+      }
+    }
+    if (in_array($entity->bundle(), $ctypes_shallow)) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
   }
 
-  public function getTombstoneRecordByPath($tombstoned_path) {
-    $database = \Drupal::database();
-    $result = $database->query("SELECT * FROM {tombstones} WHERE path='{$tombstoned_path}';");
-    return $result->fetchAll()[0];
-  }
 
-  public function getTombstoneRecordById($tombstone_id) {
-    $database = \Drupal::database();
-    $result = $database->query("SELECT * FROM {tombstones} WHERE id='{$tombstone_id}';");
-    return $result->fetchAll()[0];
+  public function shouldTombstoneBeCreatedFromHook($entity) {
+    if (\Drupal::config('tombstones.settings')->get('tombstones_use_hooks') == TRUE) {    
+      return \Drupal::service('tombstones.service')->shouldTombstoneBeCreated($entity);
+    }
+    else {
+      return FALSE;
+    }
   }
 
 }

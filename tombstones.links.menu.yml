@@ -1,0 +1,5 @@
+system.tombstones_settings:
+  title: 'Tombstones'
+  parent: system.admin_config_content
+  route_name: tombstones.settings
+  description: 'Configure tombstones settings.'

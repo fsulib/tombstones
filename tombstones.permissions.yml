@@ -1,13 +1,4 @@
-add tombstone entities:
-  title: 'Create new Tombstone entities'
-
-administer tombstone entities:
-  title: 'Administer Tombstone entities'
-  description: 'Allow to access the administration form to configure Tombstone entities.'
+administer tombstones settings:
+  title: 'Administer Tombstones settings'
+  description: 'Allow to access the administration form to configure Tombstone settings.'
   restrict access: true
-
-delete tombstone entities:
-  title: 'Delete Tombstone entities'
-
-edit tombstone entities:
-  title: 'Edit Tombstone entities'

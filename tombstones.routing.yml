@@ -1,0 +1,7 @@
+tombstones.settings:
+  path: '/admin/config/content/tombstones/settings'
+  defaults:
+    _form: '\Drupal\tombstones\Form\TombstonesSettingsForm'
+    _title: 'Tombstones Settings'
+  requirements:
+    _permission: 'administer Tombstones settings'
