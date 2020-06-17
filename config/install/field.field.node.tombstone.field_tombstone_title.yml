@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tombstone_title
+    - node.type.tombstone
+id: node.tombstone.field_tombstone_title
+field_name: field_tombstone_title
+entity_type: node
+bundle: tombstone
+label: Title
+description: 'The title(s) of the deleted resource this Tombstone represents.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

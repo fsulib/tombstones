@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tombstone_reason
+    - node.type.tombstone
+  module:
+    - text
+id: node.tombstone.field_tombstone_reason
+field_name: field_tombstone_reason
+entity_type: node
+bundle: tombstone
+label: Reason
+description: 'The reason why the resource this Tombstone represents was deleted.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

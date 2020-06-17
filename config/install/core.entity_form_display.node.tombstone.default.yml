@@ -2,10 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.tombstone.field_tombstone_doi
     - field.field.node.tombstone.field_tombstone_path
+    - field.field.node.tombstone.field_tombstone_reason
+    - field.field.node.tombstone.field_tombstone_title
     - node.type.tombstone
   module:
     - path
+    - text
 id: node.tombstone.default
 targetEntityType: node
 bundle: tombstone
@@ -17,6 +21,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_tombstone_doi:
+    weight: 122
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_tombstone_path:
     weight: 121
     settings:
@@ -24,6 +36,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_tombstone_reason:
+    weight: 123
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_tombstone_title:
+    weight: 124
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   path:
     type: path

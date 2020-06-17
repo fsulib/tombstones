@@ -9,8 +9,8 @@ field_name: field_tombstone_path
 entity_type: node
 bundle: tombstone
 label: Path
-description: ''
-required: false
+description: 'The original relative path of the deleted resource this Tombstone represents.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
