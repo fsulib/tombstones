@@ -5,7 +5,6 @@
     "keywords": [
     ],
     "homepage": "https://www.drupal.org/project/tombstones",
-    "minimum-stability": "dev",
     "support": {
       "issues": "https://www.drupal.org/project/issues/tombstones",
       "source": "http://cgit.drupalcode.org/tombstones"
