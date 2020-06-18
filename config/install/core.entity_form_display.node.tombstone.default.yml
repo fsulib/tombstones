@@ -2,8 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.tombstone.field_tombstone_addl_links
-    - field.field.node.tombstone.field_tombstone_addl_titles
+    - field.field.node.tombstone.field_tombstone_links
     - field.field.node.tombstone.field_tombstone_path
     - field.field.node.tombstone.field_tombstone_reason
     - node.type.tombstone
@@ -22,21 +21,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_tombstone_addl_links:
-    weight: 125
+  field_tombstone_links:
+    weight: 124
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
-    region: content
-  field_tombstone_addl_titles:
-    weight: 124
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
     region: content
   field_tombstone_path:
     weight: 121

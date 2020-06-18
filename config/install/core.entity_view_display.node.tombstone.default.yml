@@ -2,8 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.tombstone.field_tombstone_addl_links
-    - field.field.node.tombstone.field_tombstone_addl_titles
+    - field.field.node.tombstone.field_tombstone_links
     - field.field.node.tombstone.field_tombstone_path
     - field.field.node.tombstone.field_tombstone_reason
     - node.type.tombstone
@@ -16,8 +15,8 @@ targetEntityType: node
 bundle: tombstone
 mode: default
 content:
-  field_tombstone_addl_links:
-    weight: 105
+  field_tombstone_links:
+    weight: 104
     label: above
     settings:
       trim_length: 80
@@ -27,13 +26,6 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
-    region: content
-  field_tombstone_addl_titles:
-    weight: 104
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
     region: content
   field_tombstone_path:
     weight: 101

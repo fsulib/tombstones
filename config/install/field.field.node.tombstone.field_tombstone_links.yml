@@ -2,16 +2,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_tombstone_addl_links
+    - field.storage.node.field_tombstone_links
     - node.type.tombstone
   module:
     - link
-id: node.tombstone.field_tombstone_addl_links
-field_name: field_tombstone_addl_links
+id: node.tombstone.field_tombstone_links
+field_name: field_tombstone_links
 entity_type: node
 bundle: tombstone
-label: 'Additional Links'
-description: 'Additional links to the resource this Tombstone represents.'
+label: Links
+description: 'Additional external links to the resource this Tombstone represents was deleted, such as DOIs or EZIDs.'
 required: false
 translatable: false
 default_value: {  }
