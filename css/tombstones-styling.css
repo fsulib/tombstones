@@ -1,0 +1,23 @@
+#tombstone-citation {
+  text-align: center;
+}
+
+#tombstone-prologue-title {
+  font-weight: bold;
+}
+
+#tombstone-prologue-url {
+  font-weight: bold;
+}
+
+#tombstone-reason p::before {
+  content: '"';
+}
+
+#tombstone-reason p::after {
+  content: '"';
+}
+
+#tombstone-additional-links-label {
+  font-weight: bold;
+}

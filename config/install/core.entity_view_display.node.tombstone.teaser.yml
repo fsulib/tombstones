@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.tombstone.field_tombstone_citation
     - field.field.node.tombstone.field_tombstone_links
     - field.field.node.tombstone.field_tombstone_path
     - field.field.node.tombstone.field_tombstone_reason
@@ -20,6 +21,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_tombstone_citation: true
   field_tombstone_links: true
   field_tombstone_path: true
   field_tombstone_reason: true

@@ -1,0 +1,5 @@
+tombstones-styling:
+  version: 1.x
+  css:
+    theme:
+      css/tombstones-styling.css: {}

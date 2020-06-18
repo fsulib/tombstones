@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.tombstone.field_tombstone_citation
     - field.field.node.tombstone.field_tombstone_links
     - field.field.node.tombstone.field_tombstone_path
     - field.field.node.tombstone.field_tombstone_reason
@@ -15,6 +16,13 @@ targetEntityType: node
 bundle: tombstone
 mode: default
 content:
+  field_tombstone_citation:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_tombstone_links:
     weight: 104
     label: above

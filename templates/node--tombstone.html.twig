@@ -72,12 +72,28 @@
  * @ingroup themeable
  */
 #}
-<article{{ attributes }}>
 
+{{ attach_library('tombstones/tombstones-styling') }}
+
+<article{{ attributes }}>
   <div{{ content_attributes }}>
 
-    <p>{{ content.field_tombstone_reason.0 }}</p>
+    <div id="tombstone-wrapper" class="tombstone">
+
+    <span id="tombstone-citation" class="tombstone">{{ node.field_tombstone_citation.value|raw }}</span>
+
+    <p id="tombstone-prologue" class="tombstone">The resource <span id="tombstone-prologue-title" class="tombstone">&quot;{{ node.label }}&quot;</span>, previously available at <span id="tombstone-prologue-url" class="tombstone">{{ url('<front>')|render|trim('/', 'right') }}{{ content.field_tombstone_path.0 }}</span>, was removed from this server on <span id="tombstone-prologue-date" class="tombstone">{{ node.getCreatedTime()|date("F j, Y") }}</span>{% if content.field_tombstone_reason.0 is empty %}.</p>{% else %} for the following reason:</p>
+    <span id="tombstone-reason" class="tombstone">{{ content.field_tombstone_reason.0 }}</span>
+    {% endif %}
+
+    {% if node.field_tombstone_links is not empty %}
+    <span id="tombstone-additional-links-label" class="tombstone">Additional links for this resource:</span>
+      <ul id="tombstone-additional-links-list-root" class="tombstone">
+        {% for link in node.field_tombstone_links.getValue %}
+          <li class="tombstone tombstone-additional-links-list-item">{{ link.uri }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
 
   </div>
-
 </article>

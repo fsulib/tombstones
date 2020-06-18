@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tombstone_citation
+    - node.type.tombstone
+  module:
+    - text
+id: node.tombstone.field_tombstone_citation
+field_name: field_tombstone_citation
+entity_type: node
+bundle: tombstone
+label: Citation
+description: 'A complete citation for the deleted resource this Tombstone represents.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

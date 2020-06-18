@@ -30,7 +30,7 @@ function tombstones_theme($existing, $type, $theme, $path) {
   return [
    'node__tombstone' => [
       'template' => 'node--tombstone',
-      'base hook' => 'node'
+      'base hook' => 'node',
     ],
   ];
 }
