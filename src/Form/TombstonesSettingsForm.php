@@ -44,7 +44,7 @@ class TombstonesSettingsForm extends ConfigFormBase {
       '#default_value' => ( !is_null($config->get('tombstones_use_hooks')) ? $config->get('tombstones_use_hooks') : TRUE ),
     ];
 
-    $bundles = \Drupal::entityManager()->getBundleInfo('node');
+    $bundles = \Drupal::entityTypeManager()->getBundleInfo('node');
     $options = [];
     foreach ($bundles as $key => $value) {
       if ($key != 'tombstone') {
