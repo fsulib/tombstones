@@ -54,3 +54,12 @@ function tombstones_node_delete(Drupal\Core\Entity\EntityInterface $entity) {
     \Drupal::service('tombstones.service')->createTombstoneForDeletedNode($entity);
   }
 }
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function tombstones_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->getType() == 'tombstone') {
+    $build['#attached']['http_header'][] = ['Status', '410 Gone'];
+  }
+}
