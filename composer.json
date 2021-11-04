@@ -2,8 +2,7 @@
     "name": "fsulib/tombstones",
     "type": "drupal-custom-module",
     "description": "Drupal module for creating Tombstone nodes to replace deleted content.",
-    "keywords": [
-    ],
+    "keywords": ["Drupal"],
     "homepage": "https://github.com/fsulib/tombstones",
     "license": "GPL-2.0+",
     "authors": [
