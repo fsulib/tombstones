@@ -4,7 +4,7 @@
     "description": "Drupal module for creating Tombstone nodes to replace deleted content.",
     "keywords": [
     ],
-    "homepage": "https://www.drupal.org/project/tombstones",
+    "homepage": "https://github.com/fsulib/tombstones",
     "license": "GPL-2.0+",
     "authors": [
       {
