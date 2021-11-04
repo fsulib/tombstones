@@ -1,6 +1,6 @@
 {
     "name": "tombstones",
-    "type": "drupal-module",
+    "type": "drupal-custom-module",
     "description": "Drupal module for creating Tombstone nodes to replace deleted content.",
     "keywords": [
     ],
