@@ -5,15 +5,16 @@
     "keywords": [
     ],
     "homepage": "https://www.drupal.org/project/tombstones",
-    "support": {
-      "issues": "https://www.drupal.org/project/issues/tombstones",
-      "source": "http://cgit.drupalcode.org/tombstones"
-    },
     "license": "GPL-2.0+",
     "authors": [
       {
         "name": "Bryan J. Brown",
         "email": "bjbrown@fsu.edu",
+        "role": "Maintainer"
+      },
+      {
+        "name": "Brian Arsenault",
+        "email": "barsenault@fsu.edu",
         "role": "Maintainer"
       }
     ]
