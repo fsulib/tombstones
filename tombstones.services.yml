@@ -4,4 +4,4 @@ services:
     arguments: ['tombstones']
   tombstones.service:
     class: Drupal\tombstones\TombstonesService
-    arguments: []
+    arguments: ['@entity_type.manager','@config.factory','@tempstore.private']
