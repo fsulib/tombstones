@@ -11,8 +11,14 @@ class AddHTTPHeaders implements EventSubscriberInterface {
    * Set the HTTP response status to 410 when viewing a tombstone.
    */
   public function onRespond(ResponseEvent $event) {
-    $response = $event->getResponse();
-    $response->setStatusCode(410, 'Gone');
+    $request = $event->getRequest();
+
+    if ($node = $request->attributes->get('node')) {
+      if ($node->getType() == 'tombstone') {
+        $response = $event->getResponse();
+        $response->setStatusCode(410, 'Gone');
+      }
+    };
   }
 
   /**
@@ -22,5 +28,4 @@ class AddHTTPHeaders implements EventSubscriberInterface {
     $events[KernelEvents::RESPONSE][] = ['onRespond'];
     return $events;
   }
-
 }

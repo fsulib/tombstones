@@ -6,6 +6,6 @@ services:
     class: Drupal\tombstones\TombstonesService
     arguments: ['@entity_type.manager','@config.factory','@tempstore.private']
   tombstones.http_response_headers:
-    class: '\Drupal\tombstones\EventSubscriber\AddHTTPHeaders'
+    class: Drupal\tombstones\EventSubscriber\AddHTTPHeaders
     tags:
       - { name: 'event_subscriber' }
