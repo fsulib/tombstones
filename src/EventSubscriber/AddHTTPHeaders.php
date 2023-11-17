@@ -2,6 +2,7 @@
 
 namespace Drupal\tombstones\EventSubscriber;
 
+use Drupal\node\NodeInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -14,7 +15,7 @@ class AddHTTPHeaders implements EventSubscriberInterface {
     $request = $event->getRequest();
 
     if ($node = $request->attributes->get('node')) {
-      if ($node->getType() == 'tombstone') {
+      if ($node instanceof NodeInterface && $node->getType() == 'tombstone') {
         $response = $event->getResponse();
         $response->setStatusCode(410, 'Gone');
       }
